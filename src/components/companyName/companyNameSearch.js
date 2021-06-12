@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import CompanyListsModel from '../../companyListsModel'
+import CompanyListsModel from '../../utils/companyListsModel'
 import {
   closeCompanyLists,
   searchCompany
@@ -76,19 +76,19 @@ const CompanyNameSearch = () => {
     <>
       <div className={classes.root}>
         <LanguageComponent />
-        <h1>{t('Company Search')}</h1>
+        <h1 className={classes.heading}>{t('Company Search')}</h1>
         <div className={classes.form}>
           <div style={{ display: 'flex', position: 'relative' }}>
             <input
               placeholder={t('Company Name')}
-              type="text"
-              name="companySearch"
+              type='text'
+              name='companySearch'
               onChange={searchHandler}
-              autoComplete="off"
+              autoComplete='off'
               className={classes.searchInput}
             />
             <button
-              type="submit"
+              type='submit'
               onSubmit={fetch}
               className={classes.searchBtn}
             >
@@ -99,6 +99,7 @@ const CompanyNameSearch = () => {
           <div>
             {apiSuccess && (
               <CompanyListsModel
+                classes={classes}
                 companyLists={companyLists}
                 closeCompanyLists={closeCompanyLists}
               />
@@ -106,21 +107,23 @@ const CompanyNameSearch = () => {
           </div>
           <div className={classes.searchLink}>
             <Link
-              to="#"
+              to='#'
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded
               })}
               onClick={handleExpandClick}
               aria-expanded={expanded}
-              aria-label="show more"
+              aria-label='show more'
             >
               {t('Advanced Search')}
             </Link>
           </div>
         </div>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <AdvanceSearch />
-        </Collapse>
+        <div className={classes.advancedSearchCollapse}>
+          <Collapse in={expanded} timeout='auto' unmountOnExit>
+            <AdvanceSearch />
+          </Collapse>
+        </div>
       </div>
 
       <CompanyInfoTable classes={classes} clickExcel={clickExcel} />

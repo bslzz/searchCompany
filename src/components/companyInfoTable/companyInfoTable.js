@@ -44,7 +44,7 @@ const CompanyInfoTable = ({ classes, clickExcel }) => {
   console.log('spinner', Spinner)
 
   return (
-    <>
+    <div className={classes.resultTable}>
       {!selectedCompanyDetails.length ? (
         ''
       ) : (
@@ -52,18 +52,18 @@ const CompanyInfoTable = ({ classes, clickExcel }) => {
           {Spinner == true ? (
             <CircularProgress />
           ) : (
-            <Container className={classes.resultTable}>
+            <Container>
               <div className={classes.downloadBtn}>
                 <Button
-                  variant="contained"
-                  color="primary"
+                  variant='contained'
+                  color='primary'
                   onClick={clickExcel}
                 >
                   {t('Download')}
                 </Button>
               </div>
               <Paper>
-                <Table className={classes.table}>
+                <Table>
                   <ThemeProvider theme={theme}>
                     <TableHead>
                       <TableRow>
@@ -141,7 +141,11 @@ const CompanyInfoTable = ({ classes, clickExcel }) => {
                           <TableRow key={index}>
                             <TableCell>{item.name}</TableCell>
 
-                            <TableCell>{item.businessId}</TableCell>
+                            <TableCell>
+                              <span style={{ whiteSpace: 'nowrap' }}>
+                                {item.businessId}
+                              </span>
+                            </TableCell>
 
                             <TableCell>
                               <div className={classes.companyInfoIcons}>
@@ -244,7 +248,7 @@ const CompanyInfoTable = ({ classes, clickExcel }) => {
           )}
         </>
       )}
-    </>
+    </div>
   )
 }
 

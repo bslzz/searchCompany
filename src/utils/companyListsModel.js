@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux'
 import {
   closeCompanyLists,
   loadSelectedCompany
-} from './redux/searchCompanySlice'
+} from '../redux/searchCompanySlice'
 
-const CompanyListsModel = ({ companyLists }) => {
+const CompanyListsModel = ({ classes, companyLists }) => {
   const dispatch = useDispatch()
   const componentRef = useRef()
 
@@ -23,26 +23,12 @@ const CompanyListsModel = ({ companyLists }) => {
   }, [dispatch])
 
   return (
-    <ul
-      ref={componentRef}
-      style={{
-        listStyle: 'none',
-        textAlign: '-webkit-left',
-        margin: 0,
-        padding: 0,
-        background: '#f4f4f4'
-      }}
-    >
+    <ul ref={componentRef} className={classes.companyDropDownListsUL}>
       {companyLists &&
         companyLists.map((list, index) => (
           <li
             key={index}
-            className="list"
-            style={{
-              cursor: 'pointer',
-              margin: 0,
-              padding: '10px'
-            }}
+            className={classes.companyDropDownListsLI}
             onClick={() =>
               dispatch(
                 loadSelectedCompany(

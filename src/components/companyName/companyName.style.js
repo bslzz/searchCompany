@@ -6,6 +6,10 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center'
   },
 
+  heading: {
+    margin: '15px 0'
+  },
+
   form: {
     margin: 'auto',
     maxWidth: '700px',
@@ -28,8 +32,16 @@ export const useStyles = makeStyles((theme) => ({
     borderLeft: 'none'
   },
 
+  advancedSearchCollapse: {
+    margin: 'auto',
+    maxWidth: '700px',
+    padding: '30px'
+  },
+
   resultTable: {
-    padding: '30px 0'
+    padding: '30px',
+    margin: 'auto',
+    maxWidth: '85%'
   },
   searchLink: {
     float: 'right',
@@ -48,7 +60,8 @@ export const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)'
   },
   tableHead: {
-    fontWeight: '600'
+    fontWeight: '600',
+    whiteSpace: 'nowrap'
   },
   companyInfoIcons: {
     display: 'flex',
@@ -60,5 +73,21 @@ export const useStyles = makeStyles((theme) => ({
   downloadBtn: {
     textAlignLast: 'right',
     marginBottom: '20px'
+  },
+  companyDropDownListsUL: {
+    listStyle: 'none',
+    textAlign: '-webkit-left',
+    margin: 0,
+    padding: 0,
+    background: '#f4f4f4'
+  },
+  companyDropDownListsLI: {
+    cursor: 'pointer',
+    margin: 0,
+    padding: '10px',
+    '&:hover': {
+      background: '#2196f3',
+      color: '#fff'
+    }
   }
 }))

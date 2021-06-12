@@ -16,8 +16,8 @@ const LanguageComponent = () => {
       }}
       value={lang}
     >
-      <option value="fi">Suomi</option>
-      <option value="en">English</option>
+      <option value='fi'>Suomi</option>
+      <option value='en'>English</option>
     </select>
   )
 }

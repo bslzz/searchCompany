@@ -7,7 +7,8 @@ export const useStyles = makeStyles(() => ({
     margin: 'auto'
   },
   heading: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: '25px'
   },
   searchBtnDiv: {
     textAlign: 'center',
